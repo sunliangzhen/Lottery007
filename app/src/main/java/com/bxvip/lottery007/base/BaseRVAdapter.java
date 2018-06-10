@@ -113,6 +113,11 @@ public abstract class BaseRVAdapter<BEAN> extends RecyclerView.Adapter<BaseRVAda
         this.mOnItemLongClickListener = l;
     }
 
+    /**
+     * 绑定数据到适配器。
+     *
+     * @param datas 要绑定的数据。
+     */
     private void bindDatas(List<BEAN> datas) {
         if (mDatas.size() > 0) {
             mDatas.clear();
@@ -121,6 +126,9 @@ public abstract class BaseRVAdapter<BEAN> extends RecyclerView.Adapter<BaseRVAda
         notifyDataSetChanged();
     }
 
+    /**
+     * 应用默认的替换策略。
+     */
     private void applyDefaultReplacePolicy() {
         mDefaultPolicy = new DefaultReplacePolicy();
     }

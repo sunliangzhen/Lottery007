@@ -3,7 +3,6 @@ package com.bxvip.lottery007.base;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.IdRes;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -169,7 +168,7 @@ public abstract class BaseMVPActivity<V extends IBaseView, P extends BasePresent
     }
 
     @Override
-    public View findViewById(@IdRes int id) {
+    public View findViewById(int id) {
         return super.findViewById(id);
     }
 }
