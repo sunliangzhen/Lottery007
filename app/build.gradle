@@ -1,0 +1,64 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "27.0.3"
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1       //应用版本号，数字大于等于已安装版本，才可以覆盖安装(安装时会比对数字签名,吻合才能覆盖安装成功)
+        versionName "1.0"   //应用版本名，显示在手机安装时的版本
+        ndk {//支持各种CPU芯片
+            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
+        }
+        manifestPlaceholders = [
+                APP_NAME     : "${rootProject.ext.android.app_name}",
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "${rootProject.ext.android.jpushAppKey}",
+                JPUSH_CHANNEL: "developer-default",
+                REQUEST_URL  : "${rootProject.ext.android.requestUrl}"
+        ]
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //android v4扩展开发包
+    //android v7的rv的包
+    //android v7的兼容开发的包
+    //MaterialDesign设计的SDK
+//    compile 'com.google.code.gson:gson:2.2.4'
+    //用于json数据解析的SDK
+    //Okhttp,用于高并发网络通信的SDK
+    //极光的SDK
+    //极光的SDK
+    //大发的SDK
+    //广告轮播的SDK
+    //图片加载框架
+    //事件全局发送与接收SDK
+    compile 'com.android.support:support-v4:25.2.0'
+    compile 'com.android.support:recyclerview-v7:25.2.0'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:design:25.2.0'
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'cn.jiguang.sdk:jpush:3.1.1'
+    compile 'cn.jiguang.sdk:jcore:1.1.9'
+    compile 'com.github.JackWHLiu.jackknife:jackknife-ioc:2.4.12'
+    compile 'com.github.JackWHLiu.jackknife:jackknife-orm:2.4.12'
+    compile 'com.github.JackWHLiu.jackknife:jackknife-mvp:2.4.12'
+    compile 'com.github.JackWHLiu.jackknife:jackknife-widget:2.4.12'
+    compile 'com.github.JackWHLiu.jackknife:jackknife-util:2.4.12'
+    compile 'com.github.JackWHLiu.jackknife:jackknife-annotations-ioc:2.4.12'
+    compile 'com.github.Dafa0234:dafa-lib:1.4'
+    compile 'com.youth.banner:banner:1.4.10'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+}

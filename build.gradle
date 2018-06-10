@@ -1,0 +1,26 @@
+buildscript {
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.2'    //gradle构建插件的版本
+    }
+}
+
+allprojects {   //所有项目会去这些地址下载开发包
+    repositories {
+        jcenter()               //可以去jcenter仓库下载一些第三方开发包
+        maven {url 'https://jitpack.io'}    //可以去maven仓库下载一些第三方开发包
+    }
+}
+
+ext {   //全局常量extras
+    android =
+            [
+                    app_name       : "替换为APP名称",
+                    requestUrl    : "http://df0234.com:8081/?appId=fq004",
+                    applicationId : "com.bxvip.lottery007",
+                    jpushAppKey    : "597838d2c2b60dca3d3b747c"
+            ]
+}
+
+task cleanBuildDir(type: Delete) {
+    delete rootProject.buildDir //此行代码表示，构建时要先删除 build目录，再重新生成build目录
+}

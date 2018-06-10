@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.bxvip.lottery007">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:name=".base.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="${APP_NAME}"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <!-- 极光推送开始 -->
+        <service
+            android:name="cn.jpush.android.service.PushService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="cn.jpush.android.intent.REGISTER" />
+                <action android:name="cn.jpush.android.intent.REPORT" />
+                <action android:name="cn.jpush.android.intent.PushService" />
+                <action android:name="cn.jpush.android.intent.PUSH_TIME" />
+            </intent-filter>
+        </service>
+        <receiver
+            android:name="cn.jpush.android.service.PushReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="1000">
+                <action android:name="cn.jpush.android.intent.NOTIFICATION_RECEIVED_PROXY" />
+                <category android:name="${JPUSH_PKGNAME}" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <!-- 极光推送结束 -->
+        <activity
+            android:name=".ui.activity.OneActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.activity.TwoActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.ThreeActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.FourActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.FiveActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.SixActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.SevenActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.EightActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.NineActvity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.activity.TenActivity"
+            android:screenOrientation="portrait"/>
+        <meta-data
+            android:name="REQUEST_URL"
+            android:value="${REQUEST_URL}" />
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="${JPUSH_CHANNEL}" />
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="${JPUSH_APPKEY}" />
+    </application>
+</manifest>

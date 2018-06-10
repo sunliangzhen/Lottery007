@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LotteryView">
+        <attr name="lotteryview_ballRadius" format="dimension"/>
+        <attr name="lotteryview_ballSpan" format="dimension"/>
+        <attr name="lotteryview_ballTextSize" format="dimension"/>
+        <attr name="lotteryview_isCurrent" format="boolean"/>
+    </declare-styleable>
+</resources>
