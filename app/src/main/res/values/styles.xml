@@ -1,3 +1,30 @@
 <resources>
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar" />
+    <style name="TextAppearance.MaterialCalendarWidget.Header"
+        parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.MaterialCalendarWidget.Date"
+        parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/mcv_text_date_light</item>
+    </style>
+    <style name="TextAppearance.MaterialCalendarWidget.WeekDay"
+        parent="android:TextAppearance.DeviceDefault.Small">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="ui_parent_Wrap">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+    <style name="CustomTheme" parent="DefaultCityPickerTheme">
+        <item name="cpCancelTextColor">@color/color_green</item>
+        <item name="cpSearchCursorDrawable">@color/color_green</item>
+        <item name="cpIndexBarNormalTextColor">@color/color_green</item>
+        <item name="cpIndexBarSelectedTextColor">@color/color_green</item>
+        <item name="cpSectionHeight">@dimen/custom_section_height</item>
+        <item name="cpOverlayBackground">@color/color_green</item>
+        ......
+    </style>
 </resources>

@@ -72,8 +72,8 @@ public abstract class BaseMVPActivity<V extends IBaseView, P extends BasePresent
     public void setOrChangeTranslucentColor(Toolbar toolbar, View bottomNavigationBar, int translucentPrimaryColor){
         //判断版本,如果[4.4,5.0)就设置状态栏和导航栏为透明
         if(Build.VERSION.SDK_INT>= Build.VERSION_CODES.KITKAT
-                && Build.VERSION.SDK_INT< Build.VERSION_CODES.LOLLIPOP){
-            if(toolbar!=null){
+                && Build.VERSION.SDK_INT< Build.VERSION_CODES.LOLLIPOP) {
+            if (toolbar!=null) {
                 //1.先设置toolbar的高度
                 ViewGroup.LayoutParams params = toolbar.getLayoutParams();
                 int statusBarHeight = getStatusBarHeight(this);

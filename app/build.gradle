@@ -29,20 +29,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    //android v4扩展开发包
-    //android v7的rv的包
-    //android v7的兼容开发的包
-    //MaterialDesign设计的SDK
-//    compile 'com.google.code.gson:gson:2.2.4'
-    //用于json数据解析的SDK
-    //Okhttp,用于高并发网络通信的SDK
-    //极光的SDK
-    //极光的SDK
-    //大发的SDK
-    //广告轮播的SDK
-    //图片加载框架
-    //事件全局发送与接收SDK
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.google.code.gson:gson:2.2.4'
     compile 'com.android.support:support-v4:25.2.0'
     compile 'com.android.support:recyclerview-v7:25.2.0'
     compile 'com.android.support:appcompat-v7:25.2.0'
@@ -60,5 +48,7 @@ dependencies {
     compile 'com.youth.banner:banner:1.4.10'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'org.greenrobot:eventbus:3.0.0'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.zaaach:citypicker:2.0.2'
+    compile 'com.github.JackWHLiu:rvadapter:1.0'
+    compile 'com.github.JackWHLiu:popview:2.0'
 }

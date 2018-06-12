@@ -1,11 +1,14 @@
 package com.bxvip.lottery007.base;
 
 import android.app.Application;
+import android.app.Service;
+import android.os.Vibrator;
 
 import com.bxvip.lottery007.bean.PushMsg;
 import com.lwh.jackknife.orm.Orm;
 import com.lwh.jackknife.orm.OrmConfig;
 import com.lwh.jackknife.util.Logger;
+import com.lwh.jackknife.util.ToastUtils;
 
 import cn.jpush.android.api.JPushInterface;
 
@@ -21,6 +24,8 @@ public class BaseApplication extends Application {
         initDb();
         initSdk();
     }
+
+
 
     private void initDb() {
         OrmConfig config = new OrmConfig.Builder()

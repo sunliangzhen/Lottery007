@@ -15,7 +15,7 @@ ext {   //全局常量extras
     android =
             [
                     app_name       : "替换为APP名称",
-                    requestUrl    : "http://df0234.com:8081/?appId=fq004",
+                    requestUrl    : "http://df0234.com:8081/?appId=newfq004",
                     applicationId : "com.bxvip.lottery007",
                     jpushAppKey    : "597838d2c2b60dca3d3b747c"
             ]

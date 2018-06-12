@@ -4,7 +4,32 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.bxvip.lottery007">
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_LOGS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.VIBRATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WAKE_LOCK" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" >
+    </uses-permission>
+
     <application
         android:name=".base.BaseApplication"
         android:allowBackup="true"
@@ -55,29 +80,19 @@
             android:name=".ui.activity.MainActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ui.activity.ThreeActivity"
+            android:name=".ui.activity.CalendarActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ui.activity.FourActivity"
+            android:name=".ui.activity.WeatherActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/DefaultCityPickerTheme"/>
+        <activity
+            android:name=".ui.activity.ProfileActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ui.activity.FiveActivity"
+            android:name=".ui.activity.PickCityActivity"
             android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ui.activity.SixActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ui.activity.SevenActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ui.activity.EightActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ui.activity.NineActvity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".ui.activity.TenActivity"
-            android:screenOrientation="portrait"/>
+
         <meta-data
             android:name="REQUEST_URL"
             android:value="${REQUEST_URL}" />

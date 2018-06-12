@@ -20,7 +20,6 @@ import com.lwh.jackknife.widget.animator.ScaleAction;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class DynamicLotteryView extends View {
 
     /**
@@ -57,8 +56,6 @@ public class DynamicLotteryView extends View {
      * 用于绘制圆圈。
      */
     private Paint mCirclePaint;
-
-    private float mRatio = 1.0f;
 
     public DynamicLotteryView(Context context) {
         this(context, null);
