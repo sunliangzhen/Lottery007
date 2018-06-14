@@ -11,6 +11,9 @@ import com.lwh.jackknife.orm.dao.OrmDao;
 
 import cn.jpush.android.api.JPushInterface;
 
+/**
+ * 极光推送的消息的接收者。
+ */
 public class PushReceiver extends BroadcastReceiver {
 
     @Override

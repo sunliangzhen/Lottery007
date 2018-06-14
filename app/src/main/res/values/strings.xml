@@ -2,5 +2,40 @@
     <string name="app_name">Lottery007</string>
     <string name="previous">Go to previous</string>
     <string name="next">Go to next</string>
-    <string name="calendar">Calendar</string>
+    <string name="ssq">双色球</string>
+    <string name="main_sample">Sample Circle menu</string>
+    <string name="main_no_rotation">No rotation</string>
+    <string name="main_attributes">XML attributes</string>
+    <string name="main_dynamic_attributes">Dynamic attributes</string>
+    <string name="main_any_view">Any view</string>
+    <string name="main_dynamic_children">Dynamic children</string>
+    <!-- Menu names -->
+    <string name="business_card">Business Card</string>
+    <string name="fc3d">3D</string>
+    <string name="facebook">Facebook</string>
+    <string name="dlt">大乐透</string>
+    <string name="qlc">7乐彩</string>
+    <string name="pl3">排列三</string>
+    <string name="qxc">7星彩</string>
+    <string name="pl5">排列五</string>
+    <string name="voice_search">Voice Search</string>
+    <!-- Buttons -->
+    <string name="button_add">Add child</string>
+    <string name="button_remove">Remove child</string>
+    <!-- Menu items -->
+    <string name="speed">speed</string>
+    <string name="radius">radius</string>
+    <string name="is_rotating">isRotating</string>
+    <string name="first_child_position">firstChildPosition</string>
+    <!-- Dialog -->
+    <string name="dialog_speed">Set speed attribute</string>
+    <string name="dialog_speed_value">speed: %d</string>
+    <string name="dialog_radius">Set radius attribute</string>
+    <string name="dialog_radius_value">radius: %ddp</string>
+    <string name="dialog_is_rotating">Set isRotating attribute</string>
+    <string name="dialog_first_child_position">Set the firstChildPosition attribute</string>
+    <!-- Toasts -->
+    <string name="start_app">Starting application: %s</string>
+    <string name="center_click">Center has been clicked</string>
+
 </resources>

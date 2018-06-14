@@ -9,6 +9,9 @@ import com.lwh.jackknife.ioc.SupportActivity;
 import com.lwh.jackknife.ioc.ViewInjector;
 import com.lwh.jackknife.util.ToastUtils;
 
+/**
+ * 所有Actvity的基类
+ */
 public class BaseAppCompatActivity extends AppCompatActivity implements SupportActivity {
 
     @Override

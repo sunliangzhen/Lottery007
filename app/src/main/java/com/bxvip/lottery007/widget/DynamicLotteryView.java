@@ -20,6 +20,9 @@ import com.lwh.jackknife.widget.animator.ScaleAction;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 动态的彩票控件
+ */
 public class DynamicLotteryView extends View {
 
     /**

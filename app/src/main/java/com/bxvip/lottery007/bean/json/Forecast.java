@@ -3,7 +3,7 @@ package com.bxvip.lottery007.bean.json;
 /**
  * 天气预报
  */
-public class Forecast {
+public class Forecast implements Weather {
 
     /**
      * 日期

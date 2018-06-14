@@ -163,7 +163,6 @@ public class FullyLinearLayoutManager extends LinearLayoutManager {
         if (view != null && overScrollMode == ViewCompat.OVER_SCROLL_IF_CONTENT_SCROLLS) {
             final boolean fit = (vertical && (!hasHeightSize || height < heightSize))
                     || (!vertical && (!hasWidthSize || width < widthSize));
-
             ViewCompat.setOverScrollMode(view, fit ? ViewCompat.OVER_SCROLL_NEVER : ViewCompat.OVER_SCROLL_ALWAYS);
         }
     }

@@ -175,5 +175,5 @@
     <dimen name="cp_overlay_width">100dp</dimen>
     <dimen name="cp_overlay_height">100dp</dimen>
     <dimen name="cp_overlay_text_size">28sp</dimen>
-    <dimen name="custom_section_height">10dp</dimen>
+    <dimen name="custom_section_height">20dp</dimen>
 </resources>

@@ -1,6 +1,5 @@
 package com.bxvip.lottery007.bean.json;
 
-import java.util.Date;
 import java.util.List;
 
 /**

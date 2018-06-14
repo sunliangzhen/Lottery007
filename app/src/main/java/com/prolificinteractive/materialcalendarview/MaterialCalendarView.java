@@ -705,7 +705,7 @@ public class MaterialCalendarView extends ViewGroup {
     public CharSequence getCalendarContentDescription() {
         return calendarContentDescription != null
                 ? calendarContentDescription
-                : getContext().getString(R.string.calendar);
+                : getContext().getString(R.string.ssq);
     }
 
     /**

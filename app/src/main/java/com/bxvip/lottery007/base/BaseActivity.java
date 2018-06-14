@@ -18,13 +18,16 @@ import com.lwh.jackknife.ioc.SupportActivity;
 import com.lwh.jackknife.ioc.ViewInjector;
 import com.lwh.jackknife.util.ToastUtils;
 
+/**
+ * 所有Activity的基类
+ */
 public abstract class BaseActivity extends FragmentActivity implements SupportActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT
-                && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP){
+                && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
         }
@@ -45,7 +48,7 @@ public abstract class BaseActivity extends FragmentActivity implements SupportAc
                 ViewGroup.LayoutParams params = toolbar.getLayoutParams();
                 int statusBarHeight = getStatusBarHeight(this);
                 params.height += statusBarHeight ;
-                toolbar.setLayoutParams(params );
+                toolbar.setLayoutParams(params);
                 // 2.设置paddingTop，以达到状态栏不遮挡toolbar的内容
                 toolbar.setPadding(
                         toolbar.getPaddingLeft(),

@@ -44,4 +44,9 @@ public interface UrlConstants {
      * 七星彩开奖结果
      */
     String URL_QXC_LOTTERY_RESULT = "http://route.showapi.com/44-2?showapi_sign=4d2024758fde4f6985bf8eeb6095dc89&showapi_appid=45601&code=qxc";
+
+    /**
+     * 天气接口数据
+     */
+    String URL_WEATHER_PREFFIX = "https://www.sojson.com/open/api/weather/json.shtml?city=";
 }

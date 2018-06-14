@@ -1,14 +1,14 @@
 package com.bxvip.lottery007.base;
 
 import android.app.Application;
-import android.app.Service;
-import android.os.Vibrator;
 
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
 import com.bxvip.lottery007.bean.PushMsg;
 import com.lwh.jackknife.orm.Orm;
 import com.lwh.jackknife.orm.OrmConfig;
 import com.lwh.jackknife.util.Logger;
-import com.lwh.jackknife.util.ToastUtils;
 
 import cn.jpush.android.api.JPushInterface;
 
@@ -17,27 +17,32 @@ import cn.jpush.android.api.JPushInterface;
  */
 public class BaseApplication extends Application {
 
+    LocationClient mLocClient;
+
     @Override
     public void onCreate() {
         super.onCreate();
         Logger.open();//打开日志管理系统
-        initDb();
-        initSdk();
+        initDb();//初始化数据库
+        initSdk();//初始化第三方SDK
     }
-
-
 
     private void initDb() {
         OrmConfig config = new OrmConfig.Builder()
-                .database("lottery")
-                .version(1)
-                .tables(PushMsg.class)
+                .database("lottery")    //数据库的名称
+                .version(1) //数据库的版本号
+                .tables(PushMsg.class)  //要初始化的表
                 .build();
         Orm.init(this, config);
     }
 
     private void initSdk() {
         initJPushSdk();
+        initBaiduMapSdk();
+    }
+
+    private void initBaiduMapSdk() {
+
     }
 
     private void initJPushSdk() {

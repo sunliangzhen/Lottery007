@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.bxvip.lottery007.widget.CircleImageView
+        android:id="@+id/main_calendar_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
+        android:elevation="2dp"
+        android:src="@drawable/w_ssq"
+        app:name="@string/ssq" />
+    <com.bxvip.lottery007.widget.CircleImageView
+        android:id="@+id/main_cloud_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
+        android:elevation="2dp"
+        android:src="@drawable/w_fc3d"
+        app:name="@string/fc3d" />
+    <com.bxvip.lottery007.widget.CircleImageView
+        android:id="@+id/main_mail_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
+        android:elevation="2dp"
+        android:src="@drawable/w_qlc"
+        app:name="@string/qlc" />
+    <com.bxvip.lottery007.widget.CircleImageView
+        android:id="@+id/main_key_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
+        android:elevation="2dp"
+        android:src="@drawable/w_dlt"
+        app:name="@string/dlt" />
+    <com.bxvip.lottery007.widget.CircleImageView
+        android:id="@+id/main_profile_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
+        android:elevation="2dp"
+        android:src="@drawable/w_pl3"
+        app:name="@string/pl3" />
+    <com.bxvip.lottery007.widget.CircleImageView
+        android:id="@+id/main_tap_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
+        android:elevation="2dp"
+        android:src="@drawable/w_pl5"
+        app:name="@string/pl5" />
+    <com.bxvip.lottery007.widget.CircleImageView
+        android:id="@+id/main_aa_image"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/circle"
+        android:elevation="2dp"
+        android:src="@drawable/w_qxc"
+        app:name="@string/qxc" />
+</merge>

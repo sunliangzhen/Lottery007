@@ -3,7 +3,7 @@ package com.bxvip.lottery007.bean.json;
 /**
  * 昨天的天气
  */
-public class Yesterday {
+public class Yesterday implements Weather {
 
     /**
      * 日期

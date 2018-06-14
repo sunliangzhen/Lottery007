@@ -6,7 +6,7 @@
     <ImageView
         android:id="@+id/iv_main_banner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:background="@drawable/banner"/>
     <LinearLayout
         android:id="@+id/ll_main_bottom"
@@ -14,7 +14,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:padding="10dp">
+        android:padding="10dp"
+        android:background="@color/light_pink">
         <RelativeLayout
             android:id="@+id/rl_bottom_1"
             android:layout_width="0dp"
@@ -26,14 +27,17 @@
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
                 android:layout_centerInParent="true">
-                <ImageView
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_main_calendar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_bottom_1"/>
+                    android:src="@drawable/ic_calendar"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="万年历"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
                     android:layout_marginTop="2dp"/>
             </LinearLayout>
         </RelativeLayout>
@@ -48,15 +52,18 @@
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
                 android:layout_centerInParent="true">
-                <ImageView
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_main_cloud"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_bottom_2"/>
+                    android:src="@drawable/ic_cloud"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="天气"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
                     android:layout_marginTop="2dp"/>
             </LinearLayout>
         </RelativeLayout>
@@ -71,22 +78,45 @@
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
                 android:layout_centerInParent="true">
-                <ImageView
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_main_profile"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon_bottom_3"/>
+                    android:src="@drawable/ic_profile"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:text="我的"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
                     android:layout_marginTop="2dp"/>
             </LinearLayout>
         </RelativeLayout>
     </LinearLayout>
     <View
+        android:id="@+id/view_main_devider"
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/gray"
+        android:background="@color/theme_item_outside_background"
         android:layout_above="@id/ll_main_bottom"/>
+    <TextView
+        android:id="@+id/tv_main_selected"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_above="@id/view_main_devider"
+        android:layout_centerHorizontal="true"
+        android:paddingBottom="30dp"
+        android:background="@color/theme_item_outside_background"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+    <com.bxvip.lottery007.widget.CircleLayout
+        android:id="@+id/cl_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/iv_main_banner"
+        android:layout_above="@id/tv_main_selected"
+        android:background="@color/theme_item_outside_background">
+        <include layout="@layout/menu_items"/>
+    </com.bxvip.lottery007.widget.CircleLayout>
 </RelativeLayout>

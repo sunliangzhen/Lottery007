@@ -5,31 +5,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.bxvip.lottery007">
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.INTERNET" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.READ_LOGS" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.VIBRATE" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.WAKE_LOCK" >
-    </uses-permission>
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" >
-    </uses-permission>
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />s
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <application
         android:name=".base.BaseApplication"
         android:allowBackup="true"
@@ -69,7 +56,7 @@
         </receiver>
         <!-- 极光推送结束 -->
         <activity
-            android:name=".ui.activity.SplashActivity"
+            android:name=".ui.SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -77,22 +64,29 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.MainActivity"
+            android:name=".ui.MainActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ui.activity.CalendarActivity"
+            android:name=".ui.CalendarActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ui.activity.WeatherActivity"
+            android:name=".ui.WeatherActivity"
             android:screenOrientation="portrait"
             android:theme="@style/DefaultCityPickerTheme"/>
         <activity
-            android:name=".ui.activity.ProfileActivity"
+            android:name=".ui.ProfileActivity"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".ui.activity.PickCityActivity"
-            android:screenOrientation="portrait"/>
-
+            android:name=".ui.PickCityActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomTheme"/>
+        <activity
+            android:name=".ui.StartLottoActivity"
+            android:screenOrientation="portrait" />
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote"/>
         <meta-data
             android:name="REQUEST_URL"
             android:value="${REQUEST_URL}" />
@@ -102,5 +96,9 @@
         <meta-data
             android:name="JPUSH_APPKEY"
             android:value="${JPUSH_APPKEY}" />
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="vDlpiyObPVjiNctRjLmmOoly4mPhrmWS" >
+        </meta-data>
     </application>
 </manifest>

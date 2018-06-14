@@ -14,6 +14,9 @@ import com.bxvip.lottery007.R;
 
 import java.util.ArrayList;
 
+/**
+ * 显示彩票开奖结果的控件
+ */
 public class LotteryView extends View {
 
     /**

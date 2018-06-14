@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import com.lwh.jackknife.ioc.SupportActivity;
 import com.lwh.jackknife.ioc.SupportFragment;
 import com.lwh.jackknife.ioc.ViewInjector;
+import com.lwh.jackknife.ioc.bind.BindLayout;
 import com.lwh.jackknife.ioc.exception.LackInterfaceException;
+import com.lwh.jackknife.ioc.inject.FragmentHandler;
 import com.lwh.jackknife.mvp.BasePresenter;
 import com.lwh.jackknife.mvp.IBaseView;
 import com.lwh.jackknife.util.ToastUtils;
@@ -26,7 +28,8 @@ public abstract class BaseMVPFragment<V extends IBaseView, P extends BasePresent
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         Log.i(this.TAG, "onCreateView()");
-        return ViewInjector.injectLayout(this);
+        FragmentHandler handler = new FragmentHandler();
+        return handler.inflateLayout(new BindLayout(this));
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState) {
