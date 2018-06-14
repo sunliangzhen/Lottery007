@@ -4,12 +4,20 @@ import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bxvip.lottery007.R;
 import com.bxvip.lottery007.base.BaseAppCompatActivity;
+import com.bxvip.lottery007.highlight.HighLight;
+import com.bxvip.lottery007.highlight.interfaces.HighLightInterface;
+import com.bxvip.lottery007.highlight.position.OnLeftPosCallback;
+import com.bxvip.lottery007.highlight.position.OnTopPosCallback;
+import com.bxvip.lottery007.highlight.shape.CircleLightShape;
 import com.bxvip.lottery007.widget.CircleImageView;
 import com.bxvip.lottery007.widget.CircleLayout;
 import com.lwh.jackknife.ioc.annotation.ContentView;
@@ -24,16 +32,26 @@ public class MainActivity extends BaseAppCompatActivity implements CircleLayout.
     ImageView iv_main_calendar;
     ImageView iv_main_cloud;
     ImageView iv_main_profile;
+    private HighLight mHightLight;
 
+    public void clickKnown(View view) {
+        if (mHightLight.isShowing() && mHightLight.isNext()) {
+//            toast("aaaaaaaaaaa");
+            mHightLight.next();
+        } else {
+            toast("bbbbbbb");
+//            remove(null);
+        }
+    }
     @OnClick(R.id.rl_bottom_1)
     public void startCalendarActivity(View view) {
-        Intent intent = new Intent(this, CalendarActivity.class);
+        Intent intent = new Intent(this, WeatherActivity.class);
         startActivity(intent);
     }
 
     @OnClick(R.id.rl_bottom_2)
     public void startWeatherActivity(View view) {
-        Intent intent = new Intent(this, WeatherActivity.class);
+        Intent intent = new Intent(this, CalendarActivity.class);
         startActivity(intent);
     }
 
@@ -41,6 +59,21 @@ public class MainActivity extends BaseAppCompatActivity implements CircleLayout.
     public void startProfileActivity(View view) {
         Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
+    }
+
+    public void showTipView(View view) {
+        mHightLight = new HighLight(MainActivity.this)
+                .autoRemove(false)
+                .enableNext()
+                .addHighLight(R.id.btn_tips, R.layout.info_gravity_right_up, new OnLeftPosCallback(-200), new CircleLightShape())
+                .addHighLight(R.id.iv_main_cloud, R.layout.info_known2, new OnTopPosCallback(-100), new CircleLightShape())
+                .setClickCallback(new HighLightInterface.OnClickCallback() {
+                    @Override
+                    public void onClick() {
+                        mHightLight.next();
+                    }
+                });
+        mHightLight.show();
     }
 
     @Override
@@ -108,6 +141,11 @@ public class MainActivity extends BaseAppCompatActivity implements CircleLayout.
 
     @Override
     public void onItemSelected(View view) {
+        if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean("highlight_shown", true)) {
+            showTipView(view);
+        } else {
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("highlight_shown", false);
+        }
         final String name;
         if (view instanceof CircleImageView) {
             name = ((CircleImageView) view).getName();
@@ -119,6 +157,7 @@ public class MainActivity extends BaseAppCompatActivity implements CircleLayout.
 
     @Override
     public void onCenterClick() {
-        ToastUtils.showShort(this, "hf");
+        Intent intent = new Intent(this, OtherLotteryActivity.class);
+        startActivity(intent);
     }
 }

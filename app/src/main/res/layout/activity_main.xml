@@ -27,18 +27,21 @@
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
                 android:layout_centerInParent="true">
+
                 <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/iv_main_calendar"
+                    android:id="@+id/iv_main_cloud"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_calendar"/>
+                    android:src="@drawable/ic_cloud"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="万年历"
+                    android:layout_centerInParent="true"
+                    android:text="天气"
                     android:textSize="20sp"
                     android:textColor="@color/white"
                     android:layout_marginTop="2dp"/>
+
             </LinearLayout>
         </RelativeLayout>
         <RelativeLayout
@@ -52,16 +55,16 @@
                 android:orientation="vertical"
                 android:gravity="center_horizontal"
                 android:layout_centerInParent="true">
+
                 <android.support.v7.widget.AppCompatImageView
-                    android:id="@+id/iv_main_cloud"
+                    android:id="@+id/iv_main_calendar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_cloud"/>
+                    android:src="@drawable/ic_calendar"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:text="天气"
+                    android:text="万年历"
                     android:textSize="20sp"
                     android:textColor="@color/white"
                     android:layout_marginTop="2dp"/>
@@ -110,13 +113,22 @@
         android:paddingBottom="30dp"
         android:background="@color/theme_item_outside_background"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-    <com.bxvip.lottery007.widget.CircleLayout
-        android:id="@+id/cl_main"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/iv_main_banner"
-        android:layout_above="@id/tv_main_selected"
-        android:background="@color/theme_item_outside_background">
-        <include layout="@layout/menu_items"/>
-    </com.bxvip.lottery007.widget.CircleLayout>
+        android:layout_above="@id/tv_main_selected">
+        <com.bxvip.lottery007.widget.CircleLayout
+            android:id="@+id/cl_main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/theme_item_outside_background">
+            <include layout="@layout/menu_items"/>
+        </com.bxvip.lottery007.widget.CircleLayout>
+        <View
+            android:id="@+id/btn_tips"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"/>
+    </FrameLayout>
 </RelativeLayout>

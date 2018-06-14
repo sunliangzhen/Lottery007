@@ -10,6 +10,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
@@ -31,6 +32,7 @@ import com.google.gson.Gson;
 import com.lwh.jackknife.ioc.annotation.ContentView;
 import com.lwh.jackknife.ioc.annotation.OnClick;
 import com.lwh.jackknife.ioc.annotation.ViewInject;
+import com.lwh.jackknife.util.TextUtils;
 import com.lwh.jackknife.util.ToastUtils;
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
@@ -103,11 +105,13 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
     @ViewInject(R.id.tv_weather_locatedcity)
     private TextView tv_weather_locatedcity;
 
+    ImageView iv_weather_location;
+
     WeatherAdapter mAdapter;
     LocationClient mLocClient;
     private static final int REQUEST_PICK_CITY = 0x01;
 
-    private String mCityName = "北京";
+    private String mCityName = "";
 
     private String mLocatedCity = "未知城市";
 
@@ -130,6 +134,12 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
                         if (city != null) {
                             mCityName = city.getName();
                             tv_weather_locatedcity.setText(mCityName);
+                            if (TextUtils.isEqualTo(mCityName, mLocatedCity)) {
+                                iv_weather_location.setVisibility(View.VISIBLE);
+                            } else {
+                                iv_weather_location.setVisibility(View.GONE);
+                            }
+                            refreshWeather();
                         } else {
                             ToastUtils.showShort(WeatherActivity.this, "用户取消");
                         }
@@ -156,7 +166,6 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
         super.onStart();
         mPermissionHelper = new PermissionHelper(this, this);
         mPermissionHelper.requestPermissions();
-        refreshWeather();
     }
 
     @Override
@@ -188,6 +197,9 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
                 if (status == 200) {
                     WeatherData data = json_weather.getData();
                     loadData(data);
+                    toast("天气已更新");
+                } else {
+                    toast("天气获取失败");
                 }
             }
         });
@@ -204,8 +216,16 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
             @Override
             public void onReceiveLocation(BDLocation bdLocation) {
                 mLocatedCity = bdLocation.getCity();
-                tv_weather_locatedcity.setText(mLocatedCity);
-                ToastUtils.showShort(WeatherActivity.this, "定位到的城市"+mLocatedCity);
+                if (mLocatedCity.endsWith("市")) {
+                    mLocatedCity = mLocatedCity.substring(0, mLocatedCity.length() - 1);
+                }
+                if (TextUtils.isNotEmpty(mLocatedCity)) {
+                    mCityName = mLocatedCity;
+                    tv_weather_locatedcity.setText(mLocatedCity);
+                    iv_weather_location.setVisibility(View.VISIBLE);
+                    toast("定位到的城市" + mLocatedCity);
+                    refreshWeather();
+                }
             }
         });
         LocationClientOption option = new LocationClientOption();
