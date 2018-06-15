@@ -122,6 +122,9 @@
         <activity
             android:name=".ui.PushMsgActivity"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.OtherLotteryResultActivity"
+            android:screenOrientation="portrait"/>
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"

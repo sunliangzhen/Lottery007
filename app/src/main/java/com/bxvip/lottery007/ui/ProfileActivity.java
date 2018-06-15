@@ -97,6 +97,7 @@ public class ProfileActivity extends BaseAppCompatActivity implements View.OnCli
                 startActivity(intent);
                 break;
             case R.id.rl_profile_share:
+                toast("分享失败");
                 //分享
 //                OnekeyShare oks = new OnekeyShare();
 //                //关闭sso授权

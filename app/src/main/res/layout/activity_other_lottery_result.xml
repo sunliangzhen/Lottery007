@@ -10,22 +10,21 @@
         android:padding="10dp"
         android:background="@color/black">
         <ImageView
-            android:id="@+id/iv_otherlottery_back"
+            android:id="@+id/iv_otherlotteryresult_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/jpush_ic_richpush_actionbar_back"
             android:layout_centerVertical="true"/>
         <TextView
-            android:id="@+id/tv_otherlottery_title"
+            android:id="@+id/tv_otherlotteryresult_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:text="更多开奖"
             android:textSize="20sp"
             android:textColor="@color/white"/>
     </RelativeLayout>
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_otherlottery_name"
+        android:id="@+id/rv_otherlotteryresult"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>
