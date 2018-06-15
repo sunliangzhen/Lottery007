@@ -96,6 +96,32 @@
                     android:layout_marginTop="2dp"/>
             </LinearLayout>
         </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/rl_bottom_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_centerInParent="true">
+                <android.support.v7.widget.AppCompatImageView
+                    android:id="@+id/iv_main_news"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_tag"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="新闻"
+                    android:textSize="20sp"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+        </RelativeLayout>
     </LinearLayout>
     <View
         android:id="@+id/view_main_devider"

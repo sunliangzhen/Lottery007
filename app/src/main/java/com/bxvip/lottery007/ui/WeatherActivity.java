@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
@@ -11,6 +12,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
@@ -26,8 +29,11 @@ import com.bxvip.lottery007.bean.json.JSON_Weather;
 import com.bxvip.lottery007.bean.json.WeatherData;
 import com.bxvip.lottery007.bean.json.Yesterday;
 import com.bxvip.lottery007.constant.UrlConstants;
+import com.bxvip.lottery007.dialog.SweetAlertDialog;
 import com.bxvip.lottery007.permission.PermissionHelper;
 import com.bxvip.lottery007.permission.PermissionInterface;
+import com.bxvip.lottery007.toast.T;
+import com.bxvip.lottery007.widget.NoDataView;
 import com.google.gson.Gson;
 import com.lwh.jackknife.ioc.annotation.ContentView;
 import com.lwh.jackknife.ioc.annotation.OnClick;
@@ -47,6 +53,8 @@ import com.zaaach.citypicker.model.LocatedCity;
 
 import java.io.IOException;
 import java.util.ArrayList;
+
+import j.V;
 
 @ContentView(R.layout.activity_weather)
 public class WeatherActivity extends BaseAppCompatActivity implements UrlConstants, PermissionInterface {
@@ -109,13 +117,21 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
 
     WeatherAdapter mAdapter;
     LocationClient mLocClient;
-    private static final int REQUEST_PICK_CITY = 0x01;
 
-    private String mCityName = "";
+    private String mCityName;
 
     private String mLocatedCity = "未知城市";
 
     private PermissionHelper mPermissionHelper;
+
+    private LinearLayout ll_weather_data;
+
+    private NoDataView ndv_weather;
+
+    private TextView tv_weather_yesterday;
+    private TextView tv_weather_today;
+    private TextView tv_weather_forecast;
+    private SweetAlertDialog dialog;
 
     @OnClick(R.id.iv_weather_back)
     public void onBack(View view) {
@@ -133,6 +149,7 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
                     public void onPick(int position, City city) {
                         if (city != null) {
                             mCityName = city.getName();
+                            PreferenceManager.getDefaultSharedPreferences(WeatherActivity.this).edit().putString("curr_city", mCityName).apply();
                             tv_weather_locatedcity.setText(mCityName);
                             if (TextUtils.isEqualTo(mCityName, mLocatedCity)) {
                                 iv_weather_location.setVisibility(View.VISIBLE);
@@ -162,10 +179,17 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
     }
 
     @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        PreferenceManager.getDefaultSharedPreferences(this).edit().putString("curr_city", mCityName).apply();
+    }
+
+    @Override
     protected void onStart() {
         super.onStart();
-        mPermissionHelper = new PermissionHelper(this, this);
-        mPermissionHelper.requestPermissions();
+        mCityName = PreferenceManager.getDefaultSharedPreferences(this).getString("curr_city", "北京");
+        tv_weather_locatedcity.setText(mCityName);
+        refreshWeather();
     }
 
     @Override
@@ -178,6 +202,10 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
     }
 
     public void refreshWeather() {
+        dialog = new SweetAlertDialog(this);
+        dialog.setTitleText("请稍候...");
+        dialog.show();
+        ndv_weather.setVisibility(View.VISIBLE);
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(URL_WEATHER_PREFFIX+mCityName)
@@ -197,9 +225,15 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
                 if (status == 200) {
                     WeatherData data = json_weather.getData();
                     loadData(data);
-                    toast("天气已更新");
                 } else {
-                    toast("天气获取失败");
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            dialog.cancel();
+                            T.showAnimErrorToast(WeatherActivity.this, "更新失败");
+                            ndv_weather.setVisibility(View.VISIBLE);
+                        }
+                    });
                 }
             }
         });
@@ -208,6 +242,8 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mPermissionHelper = new PermissionHelper(this, this);
+        mPermissionHelper.requestPermissions();
         rv_weather.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
         rv_weather.setItemAnimator(new DefaultItemAnimator());
         rv_weather.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.HORIZONTAL));
@@ -218,13 +254,6 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
                 mLocatedCity = bdLocation.getCity();
                 if (mLocatedCity.endsWith("市")) {
                     mLocatedCity = mLocatedCity.substring(0, mLocatedCity.length() - 1);
-                }
-                if (TextUtils.isNotEmpty(mLocatedCity)) {
-                    mCityName = mLocatedCity;
-                    tv_weather_locatedcity.setText(mLocatedCity);
-                    iv_weather_location.setVisibility(View.VISIBLE);
-                    toast("定位到的城市" + mLocatedCity);
-                    refreshWeather();
                 }
             }
         });
@@ -255,6 +284,9 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
                 String notice2 = yesterday.getNotice();
                 String sunrise = yesterday.getSunrise();
                 String sunset = yesterday.getSunset();
+                tv_weather_yesterday.setText("昨日");
+                tv_weather_today.setText("今日");
+                tv_weather_forecast.setText("天气预报");
                 tv_weather_temperature.setText(temperature+"℃");
                 tv_weather_desc.setText(quality);
                 tv_weather_notice.setText(notice);
@@ -275,6 +307,10 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
                 mAdapter = new WeatherAdapter(WeatherActivity.this, forecasts);
                 rv_weather.setAdapter(mAdapter);
                 mAdapter.addItems(forecasts);
+                ndv_weather.setVisibility(View.GONE);
+                ll_weather_data.setVisibility(View.VISIBLE);
+                dialog.cancel();
+                T.showAnimSuccessToast(WeatherActivity.this, "更新成功");
             }
         });
     }
@@ -294,7 +330,7 @@ public class WeatherActivity extends BaseAppCompatActivity implements UrlConstan
 
     @Override
     public void requestPermissionsSuccess() {
-        refreshWeather();
+//        refreshWeather();
     }
 
     @Override

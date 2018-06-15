@@ -32,6 +32,7 @@ public class MainActivity extends BaseAppCompatActivity implements CircleLayout.
     ImageView iv_main_calendar;
     ImageView iv_main_cloud;
     ImageView iv_main_profile;
+    ImageView iv_main_news;
     private HighLight mHightLight;
 
     public void clickKnown(View view) {
@@ -58,6 +59,12 @@ public class MainActivity extends BaseAppCompatActivity implements CircleLayout.
     @OnClick(R.id.rl_bottom_3)
     public void startProfileActivity(View view) {
         Intent intent = new Intent(this, ProfileActivity.class);
+        startActivity(intent);
+    }
+
+    @OnClick(R.id.rl_bottom_4)
+    public void startConsultancyActivity(View view) {
+        Intent intent = new Intent(this, ConsultancyActivity.class);
         startActivity(intent);
     }
 
@@ -141,10 +148,9 @@ public class MainActivity extends BaseAppCompatActivity implements CircleLayout.
 
     @Override
     public void onItemSelected(View view) {
-        if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean("highlight_shown", true)) {
+        if (!PreferenceManager.getDefaultSharedPreferences(this).getBoolean("highlight_shown", false)) {
+            PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("highlight_shown", true).apply();
             showTipView(view);
-        } else {
-            PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean("highlight_shown", false);
         }
         final String name;
         if (view instanceof CircleImageView) {

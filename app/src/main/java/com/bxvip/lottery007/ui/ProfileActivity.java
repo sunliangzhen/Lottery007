@@ -35,7 +35,7 @@ public class ProfileActivity extends BaseAppCompatActivity implements View.OnCli
     @ViewInject(R.id.rl_profile_exit)
     RelativeLayout rl_profile_exit;
 
-    LinearLayout ll_qqlogin;
+//    LinearLayout ll_qqlogin;
 
     @OnClick(R.id.iv_profile_back)
     public void onBack(View view) {
@@ -45,7 +45,7 @@ public class ProfileActivity extends BaseAppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ll_qqlogin.setOnClickListener(this);
+//        ll_qqlogin.setOnClickListener(this);
         rl_profile_clearcache.setOnClickListener(this);
         rl_profile_checkupdate.setOnClickListener(this);
         rl_profile_feedback.setOnClickListener(this);
@@ -82,9 +82,9 @@ public class ProfileActivity extends BaseAppCompatActivity implements View.OnCli
     public void onClick(View v) {
         Intent intent = new Intent();
         switch (v.getId()) {
-            case R.id.ll_qqlogin:
-                qqLogin();
-                break;
+//            case R.id.ll_qqlogin:
+//                qqLogin();
+//                break;
             case R.id.rl_profile_clearcache:
                 CacheUtils.clearAllCache(this);
                 ToastUtils.showShort(this, "缓存已清除");
@@ -93,8 +93,8 @@ public class ProfileActivity extends BaseAppCompatActivity implements View.OnCli
                 ToastUtils.showShort(this, "已最新");
                 break;
             case R.id.rl_profile_feedback:
-//                intent.setClass(this, FeedbackActivity.class);
-//                startActivity(intent);
+                intent.setClass(this, FeedbackActivity.class);
+                startActivity(intent);
                 break;
             case R.id.rl_profile_share:
                 //分享
@@ -118,8 +118,8 @@ public class ProfileActivity extends BaseAppCompatActivity implements View.OnCli
 //                oks.show(getContext());
                 break;
             case R.id.rl_profile_pushmsg:
-//                intent.setClass(this, PushMsgActivity.class);
-//                startActivity(intent);
+                intent.setClass(this, PushMsgActivity.class);
+                startActivity(intent);
                 break;
             case R.id.rl_profile_exit:
                 android.os.Process.killProcess(android.os.Process.myPid());

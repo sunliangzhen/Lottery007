@@ -24,44 +24,50 @@
             android:textColor="@color/white"
             android:layout_centerInParent="true"/>
     </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/ll_weather_locatedcity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/theme_item_inside_foreground">
+        <ImageView
+            android:id="@+id/iv_weather_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="0.6"
+            android:scaleY="0.6"
+            android:src="@drawable/location"
+            android:visibility="gone"/>
+        <TextView
+            android:id="@+id/tv_weather_locatedcity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="北京"
+            android:textSize="20sp"
+            android:padding="5dp"/>
+    </LinearLayout>
+    <com.bxvip.lottery007.widget.NoDataView
+        android:id="@+id/ndv_weather"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
             <LinearLayout
-                android:id="@+id/ll_weather_locatedcity"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:background="@color/theme_item_inside_foreground">
-                <ImageView
-                    android:id="@+id/iv_weather_location"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:scaleX="0.6"
-                    android:scaleY="0.6"
-                    android:src="@drawable/location"
-                    android:visibility="gone"/>
-                <TextView
-                    android:id="@+id/tv_weather_locatedcity"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="北京"
-                    android:textSize="20sp"
-                    android:padding="5dp"/>
-            </LinearLayout>
-            <LinearLayout
+                android:id="@+id/ll_weather_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:visibility="gone"
                 android:background="@color/theme_item_outside_background">
                 <TextView
+                    android:id="@+id/tv_weather_today"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="今日"
                     android:padding="10dp"
                     android:textSize="15sp"/>
                 <RelativeLayout
@@ -72,7 +78,6 @@
                         android:id="@+id/tv_weather_temperature"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="--℃"
                         android:textSize="30sp"
                         android:layout_marginTop="2dp"
                         android:layout_marginLeft="10dp"/>
@@ -80,7 +85,6 @@
                         android:id="@+id/tv_weather_desc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="优"
                         android:textSize="15sp"
                         android:layout_marginLeft="2dp"
                         android:layout_toRightOf="@id/tv_weather_temperature"
@@ -91,7 +95,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingLeft="5dp"
-                    android:text="温馨小提示"
                     android:background="@color/theme_item_inside_foreground"/>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -104,7 +107,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="湿度：--%"
                         android:gravity="center"
                         android:layout_marginLeft="2dp"/>
                     <TextView
@@ -112,7 +114,6 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="PM2.5:0"
                         android:gravity="center"
                         android:layout_marginLeft="2dp"/>
                     <TextView
@@ -120,15 +121,14 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="PM10:0"
                         android:gravity="center"
                         android:layout_marginLeft="2dp"/>
                 </LinearLayout>
             </LinearLayout>
             <TextView
+                android:id="@+id/tv_weather_yesterday"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="昨日"
                 android:padding="10dp"
                 android:textSize="15sp"/>
             <include
@@ -136,9 +136,9 @@
                 android:layout_height="wrap_content"
                 layout="@layout/item_weather"/>
             <TextView
+                android:id="@+id/tv_weather_forecast"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="天气预报"
                 android:padding="10dp"
                 android:textSize="15sp"/>
             <android.support.v7.widget.RecyclerView

@@ -10,6 +10,7 @@ import com.lwh.jackknife.orm.Orm;
 import com.lwh.jackknife.orm.OrmConfig;
 import com.lwh.jackknife.util.Logger;
 
+import cn.bmob.v3.Bmob;
 import cn.jpush.android.api.JPushInterface;
 
 /**
@@ -39,6 +40,11 @@ public class BaseApplication extends Application {
     private void initSdk() {
         initJPushSdk();
         initBaiduMapSdk();
+        initBmobSdk();
+    }
+
+    private void initBmobSdk() {
+        Bmob.initialize(this, "cf11ffc841657a55b82f03c0fc43f39a");
     }
 
     private void initBaiduMapSdk() {

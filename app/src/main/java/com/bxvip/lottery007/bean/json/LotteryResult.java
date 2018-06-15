@@ -1,6 +1,8 @@
 package com.bxvip.lottery007.bean.json;
 
-public class LotteryResult {
+import java.io.Serializable;
+
+public class LotteryResult implements Serializable {
 
     private long timestamp;
     private String expect;

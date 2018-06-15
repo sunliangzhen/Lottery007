@@ -19,6 +19,7 @@ import com.bxvip.lottery007.base.BaseAppCompatActivity;
 import com.bxvip.lottery007.bean.json.JSON_LotteryResult;
 import com.bxvip.lottery007.bean.json.LotteryResult;
 import com.bxvip.lottery007.bean.json.LotteryResultData;
+import com.bxvip.lottery007.dialog.SweetAlertDialog;
 import com.google.gson.Gson;
 import com.lwh.jackknife.ioc.annotation.ContentView;
 import com.lwh.jackknife.ioc.annotation.OnClick;
@@ -50,7 +51,7 @@ public class StartLottoActivity extends BaseAppCompatActivity {
 
     int mChannel = -1;
 
-    RelativeLayout rl_cp;
+    private SweetAlertDialog dialog;
 
     @OnClick(R.id.iv_startlotto_back)
     public void onBack(View view) {
@@ -60,6 +61,9 @@ public class StartLottoActivity extends BaseAppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        dialog = new SweetAlertDialog(this);
+        dialog.setTitleText("请稍候...");
+        dialog.show();
         rv_start_lotto.setLayoutManager(new LinearLayoutManager(this));
         rv_start_lotto.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         rv_start_lotto.setItemAnimator(new DefaultItemAnimator());
@@ -107,10 +111,10 @@ public class StartLottoActivity extends BaseAppCompatActivity {
         mAdapter.setOnItemClickListener(new LotteryResultAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ViewGroup parent, int position) {
-//                Intent intent = new Intent(getContext(), LotteryDetailActivity.class);
-//                intent.putExtra("lottery", mAdapter.getData(position));
-//                intent.putExtra("pos", mChannel);
-//                startActivity(intent);
+                Intent intent = new Intent(StartLottoActivity.this, LotteryDetailActivity.class);
+                intent.putExtra("pos", mChannel);
+                intent.putExtra("lottery", mAdapter.getData(position));
+                startActivity(intent);
             }
         });
         rv_start_lotto.setAdapter(mAdapter);
@@ -136,8 +140,8 @@ public class StartLottoActivity extends BaseAppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            dialog.cancel();
                             mAdapter.addItems(results);
-                            rl_cp.setVisibility(View.GONE);
                         }
                     });
                 }

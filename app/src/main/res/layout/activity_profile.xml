@@ -24,32 +24,33 @@
             android:textColor="@color/white"
             android:layout_centerInParent="true"/>
     </RelativeLayout>
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/sky_blue">
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"
-            android:layout_centerInParent="true"
-            android:id="@+id/ll_qqlogin">
-            <ImageView
-                android:layout_width="60dp"
-                android:layout_height="60dp"/>
-            <!--<TextView-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:text="QQ登录"-->
-                <!--android:textColor="@color/white"-->
-                <!--android:layout_marginTop="5dp"/>-->
-        </LinearLayout>
-    </RelativeLayout>
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="200dp"-->
+        <!--android:background="@color/sky_blue">-->
+        <!--<LinearLayout-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:id="@+id/ll_qqlogin">-->
+            <!--<ImageView-->
+                <!--android:layout_width="60dp"-->
+                <!--android:layout_height="60dp"/>-->
+            <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:text="QQ登录"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textColor="@color/white"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginTop="5dp"/>&ndash;&gt;-->
+        <!--</LinearLayout>-->
+    <!--</RelativeLayout>-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="10dp"
         android:background="@color/theme_item_inside_foreground">
     <RelativeLayout
         android:id="@+id/rl_profile_clearcache"
@@ -61,7 +62,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="缓存清理"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"/>
         <ImageView
@@ -87,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="意见反馈"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"/>
         <ImageView
@@ -113,7 +114,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="检测更新"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"/>
         <ImageView
@@ -139,7 +140,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="分享"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"/>
         <ImageView
@@ -164,7 +165,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="消息提醒"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"/>
         <ImageView
@@ -186,7 +187,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="退出"
-            android:textSize="15sp"
+            android:textSize="18sp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="15dp"/>
         <ImageView

@@ -176,4 +176,11 @@
     <dimen name="cp_overlay_height">100dp</dimen>
     <dimen name="cp_overlay_text_size">28sp</dimen>
     <dimen name="custom_section_height">20dp</dimen>
+
+    <dimen name="common_circle_width">3dp</dimen>
+    <dimen name="progress_circle_radius">34dp</dimen>
+    <dimen name="alert_width">86dp</dimen>
+    <dimen name="width">100dp</dimen>
+    <dimen name="height">120dp</dimen>
+    <dimen name="root_height">150dp</dimen>
 </resources>

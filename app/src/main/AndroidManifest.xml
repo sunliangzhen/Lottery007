@@ -83,6 +83,45 @@
         <activity
             android:name=".ui.StartLottoActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.OtherLotteryActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.ConsultancyActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.ConsultancyDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.LotteryDetailActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.FeedbackActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.ShuangSeQiuChartActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui._3DChartActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui._7LeCaiChartActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.DaLeTouChartActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.PaiLie3ChartActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.PaiLie5ChartActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.QiXingCaiChartActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.PushMsgActivity"
+            android:screenOrientation="portrait"/>
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
